@@ -1,13 +1,18 @@
+#routeを設定するための関数（あんま気にしなくていい？）
 Rails.application.routes.draw do
-  get 'memos/index'
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  #メモ帳作成
+  get "memo" => 'memos#index'
 
-  # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
-  # Can be used by load balancers and uptime monitors to verify that the app is live.
+  #CSVファイル読み込み
+  get "csv" => 'memos#csv'
+
   get "up" => "rails/health#show", as: :rails_health_check
 
-  # Defines the root path route ("/")
-  # root "posts#index"
-  root :to => 'memos#index'
-  resources :memos, only: [:index, :update, :destroy, :create]
+  #ホームページ
+  root 'memos#home'
+  resources :memos do
+    collection {post :import}
+  end
+  resources :memos, only: [:index, :update, :destroy, :create, :import]
 end
+

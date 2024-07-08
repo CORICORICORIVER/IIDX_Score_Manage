@@ -1,0 +1,9 @@
+<%= form_tag import_memos_path, multipart: true do %>
+  <div class="col-box-1">
+    <%= file_field_tag :file %>
+  </div>
+
+  <div class="col-box-3"> 
+  <%= submit_tag "アップロード" %>
+  </div>
+<% end %>
