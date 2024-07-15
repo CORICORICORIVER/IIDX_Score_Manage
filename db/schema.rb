@@ -13,6 +13,10 @@
 ActiveRecord::Schema[7.1].define(version: 2024_06_29_094709) do
   create_table "memos", force: :cascade do |t|
     t.string "title"
+    t.string "バージョン"
+    t.string "タイトル"
+    t.string "ジャンル"
+    t.string "プレー回数"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

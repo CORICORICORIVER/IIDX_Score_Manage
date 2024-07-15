@@ -44,6 +44,8 @@ gem "bootsnap", require: false
 
 gem "roo", "~> 2.8.0"
 
+gem "csv"
+
 # Use Active Storage variants [https://guides.rubyonrails.org/active_storage_overview.html#transforming-images]
 # gem "image_processing", "~> 1.2"
 

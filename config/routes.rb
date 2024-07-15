@@ -1,8 +1,7 @@
 #routeを設定するための関数（あんま気にしなくていい？）
 Rails.application.routes.draw do
   #メモ帳作成
-  get "memo" => 'memos#index'
-
+  get "memos" => 'memos#index'
   #CSVファイル読み込み
   get "csv" => 'memos#csv'
 
@@ -10,9 +9,14 @@ Rails.application.routes.draw do
 
   #ホームページ
   root 'memos#home'
+
+  #memosの関数として:index, :update, :destroy, :createなどを設定
   resources :memos do
-    collection {post :import}
+    #importクラスを追加
+    collection do
+      post :import
+      delete :destroy_all
+    end
   end
-  resources :memos, only: [:index, :update, :destroy, :create, :import]
 end
 
