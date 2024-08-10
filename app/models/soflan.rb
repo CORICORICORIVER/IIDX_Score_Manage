@@ -1,0 +1,2 @@
+class Soflan < ApplicationRecord
+end

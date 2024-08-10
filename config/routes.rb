@@ -2,6 +2,8 @@
 Rails.application.routes.draw do
   #メモ帳作成
   get "memos" => 'memos#index'
+  #ソフラン用memoに飛ぶ
+  get "soflan" => 'memos#soflan'
   #CSVファイル読み込み
   get "csv" => 'memos#csv'
 

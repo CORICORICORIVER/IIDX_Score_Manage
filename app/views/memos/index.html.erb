@@ -33,9 +33,9 @@
             <% end %>
         </div>
 
-        <% @memos.reverse.each do |memo| %>
+        <% @memos.reverse.each do |scratch| %>
             <div class="col-box-3">
-                <%= form_with model: memo, url: memo_path(memo.id), local: true, method: :patch do |f| %>
+                <%= form_with model: scratch, url: memo_path(scratch.id), local: true, method: :patch do |f| %>
 
                     <div class="memo-header">
                         <%= f.text_field :バージョン, placeholder: "バージョン", class: "form-box" %>
@@ -57,7 +57,7 @@
                     </div>
                 <% end %>
                 <div class="memo-other">
-                    <%= button_to "削除", memo_path(memo.id), method: :delete, class: "btn" %>
+                    <%= button_to "削除", memo_path(scratch.id), method: :delete, class: "btn" %>
                 </div>
             </div>
         <% end %>

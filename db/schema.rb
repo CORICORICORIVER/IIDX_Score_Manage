@@ -10,8 +10,50 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_06_29_094709) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_10_105541) do
+  create_table "charges", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "chords", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "memos", force: :cascade do |t|
+    t.string "title"
+    t.string "バージョン"
+    t.string "タイトル"
+    t.string "ジャンル"
+    t.string "プレー回数"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "notes", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "peaks", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "scratchs", force: :cascade do |t|
+    t.string "title"
+    t.string "バージョン"
+    t.string "タイトル"
+    t.string "ジャンル"
+    t.string "プレー回数"
+    t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "soflans", force: :cascade do |t|
     t.string "title"
     t.string "バージョン"
     t.string "タイトル"
