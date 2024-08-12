@@ -20,5 +20,13 @@ Rails.application.routes.draw do
       delete :destroy_all
     end
   end
+  
+  resources :soflan do
+    #importクラスを追加
+    collection do
+      post :import
+      delete :destroy_all
+    end
+  end
 end
 
