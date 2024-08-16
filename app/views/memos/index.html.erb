@@ -7,9 +7,9 @@
         <!--全削除ボタン-->
         <div class="col-box-1">
             <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
-                <div class="memo-footer">
+                <button type="button" class="btn btn-danger">
                     <%= f.submit "全削除", class: "btn" %>
-                </div>
+                </button>
             <% end %>    
         </div>
 

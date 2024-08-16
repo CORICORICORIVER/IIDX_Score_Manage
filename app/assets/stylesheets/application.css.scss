@@ -1,0 +1,122 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS (and SCSS, if configured) file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+ * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  color: #696969;
+  font-size: 16px;
+  font-family: sans-serif;
+}
+
+.header-color {
+  background-color: #4169e1;
+}
+
+h1 {
+  font-size: 36px;
+  color: #ffffff;
+}
+
+h2 {
+  font-size: 24px;
+}
+
+.wrapper {
+  width: 100%;
+}
+
+.container {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 1170px;
+}
+
+.col-box-1{
+  width: 100%;
+  padding: 6px;
+}
+
+.col-box-2{
+  width: 50%;
+  padding: 6px;
+}
+
+.col-box-3{
+  width: 33.3%;
+  padding: 6px;
+}
+
+.col-box-4{
+  width: 25%;
+  padding: 6px;
+}
+
+.flex-start {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.memo-header {
+  width: 100%;
+  padding: 6px;
+  min-height: 40px;
+  background-color: #ffd700;
+  border-radius: 6px 6px 0 0;
+}
+
+.memo-center {
+  width: 100%;
+  padding: 6px;
+  min-height: 100px;
+  background-color: #fffacd;
+}
+
+.memo-footer {
+  width: 100%;
+  padding: 6px;
+  background-color: #ffd700;
+  border-radius: 0 0 6px 6px;
+  text-align: center;
+}
+
+.memo-other {
+  width: 100%;
+  padding: 6px;
+  text-align: right;
+}
+
+.form-box {
+  background-color: transparent;
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  padding: 6px;
+  width: 100%;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+.btn {
+  border: 1px solid #d3d3d3;
+  border-radius: 6px;
+  padding: 3px 12px;
+}
+
+@import "bootstrap";
