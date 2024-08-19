@@ -2,6 +2,11 @@
 Rails.application.routes.draw do
   #ユーザー認証関係のURLを自動生成
   devise_for :users
+
+  #ログアウトの際,GETメソッドではなくDELETEメソッドをリクエストするためのコード
+  devise_scope :user do
+    get '/users/sign_out' => 'devise/sessions#destroy'
+  end
   #メモ帳作成
   get "memos" => 'memos#index'
   #ソフラン用memoに飛ぶ
