@@ -16,58 +16,23 @@
         <% @memos.reverse.each do |scratch| %>
             <div class="col-box-3">
                 <%= form_with model: scratch, url: memo_path(scratch.id), local: true, method: :patch do |f| %>
-
-                    <div class="memo-header">
-                        <%= f.text_field :バージョン, placeholder: "バージョン", class: "form-box" %>
                     </div>
                     <div class="memo-header">
                         <%= f.text_field :タイトル, placeholder: "タイトル", class: "form-box" %>
                     </div>
-                    <div class="memo-header">
-                        <%= f.text_field :ジャンル, placeholder: "ジャンル", class: "form-box" %>
-                    </div>
-                    <div class="memo-header">
-                        <%= f.text_field :プレー回数, placeholder: "プレー回数", class: "form-box" %>
-                    </div>
-                    <div class="memo-center">
-                        <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
-                    </div>
-                    <div class="memo-footer">
-                        <%= f.submit "更新", class: "btn" %>
-                    </div>
                 <% end %>
-                <div class="memo-other">
-                    <%= button_to "削除", memo_path(scratch.id), method: :delete, class: "btn" %>
-                </div>
+
             </div>
         <% end %>
 
         <% @memos.reverse.each do |soflan| %>
             <div class="col-box-3">
                 <%= form_with model: soflan, url: memo_path(soflan.id), local: true, method: :patch do |f| %>
-
-                    <div class="memo-header">
-                        <%= f.text_field :バージョン, placeholder: "バージョン", class: "form-box" %>
-                    </div>
                     <div class="memo-header">
                         <%= f.text_field :タイトル, placeholder: "タイトル", class: "form-box" %>
                     </div>
-                    <div class="memo-header">
-                        <%= f.text_field :ジャンル, placeholder: "ジャンル", class: "form-box" %>
-                    </div>
-                    <div class="memo-header">
-                        <%= f.text_field :プレー回数, placeholder: "プレー回数", class: "form-box" %>
-                    </div>
-                    <div class="memo-center">
-                        <%= f.text_area :description, placeholder: "メモ", class: "form-box" %>
-                    </div>
-                    <div class="memo-footer">
-                        <%= f.submit "更新", class: "btn" %>
-                    </div>
                 <% end %>
-                <div class="memo-other">
-                    <%= button_to "削除", memo_path(soflan.id), method: :delete, class: "btn" %>
-                </div>
+
             </div>
         <% end %>
     </div>

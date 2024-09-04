@@ -10,50 +10,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_01_151901) do
-  create_table "charges", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "chords", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
+ActiveRecord::Schema[7.1].define(version: 2024_08_14_140721) do
   create_table "memos", force: :cascade do |t|
-    t.string "title"
-    t.string "バージョン"
-    t.string "タイトル"
-    t.string "ジャンル"
-    t.string "プレー回数"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "notes", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "peaks", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "scratchs", force: :cascade do |t|
-    t.string "title"
-    t.string "バージョン"
-    t.string "タイトル"
-    t.string "ジャンル"
-    t.string "プレー回数"
-    t.text "description"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  create_table "soflans", force: :cascade do |t|
     t.string "title"
     t.string "バージョン"
     t.string "タイトル"
@@ -66,13 +24,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_01_151901) do
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
+    t.string "username", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "username", default: "", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_users_on_username", unique: true
