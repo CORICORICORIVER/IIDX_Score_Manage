@@ -1,0 +1,2 @@
+class Raderval < ApplicationRecord
+end

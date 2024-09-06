@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_14_140721) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_06_105204) do
   create_table "memos", force: :cascade do |t|
     t.string "title"
     t.string "バージョン"
@@ -18,6 +18,18 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_14_140721) do
     t.string "ジャンル"
     t.string "プレー回数"
     t.text "description"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "radervals", force: :cascade do |t|
+    t.string "title"
+    t.integer "NOTES"
+    t.integer "CHORD"
+    t.integer "PEAK"
+    t.integer "CHARGE"
+    t.integer "SCRATCH"
+    t.integer "SOFLAN"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

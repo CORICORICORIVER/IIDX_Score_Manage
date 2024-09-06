@@ -13,9 +13,9 @@
             <% end %>    
         </div>
 
-        <% @memos.reverse.each do |scratch| %>
+        <% @memos.reverse.each do |song| %>
             <div class="col-box-3">
-                <%= form_with model: scratch, url: memo_path(scratch.id), local: true, method: :patch do |f| %>
+                <%= form_with model: song, url: memo_path(song.id), local: true, method: :patch do |f| %>
                     </div>
                     <div class="memo-header">
                         <%= f.text_field :タイトル, placeholder: "タイトル", class: "form-box" %>
@@ -25,15 +25,5 @@
             </div>
         <% end %>
 
-        <% @memos.reverse.each do |soflan| %>
-            <div class="col-box-3">
-                <%= form_with model: soflan, url: memo_path(soflan.id), local: true, method: :patch do |f| %>
-                    <div class="memo-header">
-                        <%= f.text_field :タイトル, placeholder: "タイトル", class: "form-box" %>
-                    </div>
-                <% end %>
-
-            </div>
-        <% end %>
     </div>
 </div>
