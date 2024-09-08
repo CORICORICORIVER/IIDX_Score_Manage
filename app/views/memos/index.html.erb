@@ -16,9 +16,14 @@
         <% @memos.reverse.each do |song| %>
             <div class="col-box-3">
                 <%= form_with model: song, url: memo_path(song.id), local: true, method: :patch do |f| %>
-                    </div>
                     <div class="memo-header">
                         <%= f.text_field :タイトル, placeholder: "タイトル", class: "form-box" %>
+                    </div>
+                    <div class="memo-header">
+                        <%= f.text_field :raderval_id, placeholder: "タイトル", class: "form-box" %>
+                    </div>
+                    <div class="memo-header">
+                    <%= f.text_field :NOTES, placeholder: "タイトル", class: "form-box" %>
                     </div>
                 <% end %>
 

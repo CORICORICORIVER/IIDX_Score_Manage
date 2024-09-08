@@ -12,11 +12,22 @@
 
 ActiveRecord::Schema[7.1].define(version: 2024_09_06_105204) do
   create_table "memos", force: :cascade do |t|
-    t.string "title"
+    t.integer "raderval_id"
     t.string "バージョン"
     t.string "タイトル"
     t.string "ジャンル"
     t.string "プレー回数"
+    t.string "N_SCORE"
+    t.string "H_SCORE"
+    t.string "A_SCORE"
+    t.string "L_SCORE"
+    t.integer "NOTES"
+    t.integer "CHORD"
+    t.integer "PEAK"
+    t.integer "CHARGE"
+    t.integer "SCRATCH"
+    t.integer "SOFLAN"
+    t.integer "MAXSCORE"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -30,6 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_105204) do
     t.integer "CHARGE"
     t.integer "SCRATCH"
     t.integer "SOFLAN"
+    t.integer "MAXSCORE"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

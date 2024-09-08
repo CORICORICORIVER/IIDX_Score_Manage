@@ -7,7 +7,8 @@ class CreateRadervals < ActiveRecord::Migration[7.1]
       t.integer :PEAK
       t.integer :CHARGE
       t.integer :SCRATCH
-      t.integer :SOFLAN
+      t.integer :SOFLAN      
+      t.integer :MAXSCORE
       t.timestamps
     end
   end
