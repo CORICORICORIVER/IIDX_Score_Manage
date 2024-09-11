@@ -1,7 +1,7 @@
 class MemosController < ApplicationController
   def index
     @memo_new = Memo.new
-    @memos = Memo.all
+    @memos = Memo.joins(:raderval).select('memos.*, radervals.*').all
   end
  
   def create

@@ -10,24 +10,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_09_06_105204) do
+ActiveRecord::Schema[7.1].define(version: 2024_09_11_094709) do
   create_table "memos", force: :cascade do |t|
     t.integer "raderval_id"
     t.string "バージョン"
     t.string "タイトル"
     t.string "ジャンル"
     t.string "プレー回数"
-    t.string "N_SCORE"
-    t.string "H_SCORE"
-    t.string "A_SCORE"
-    t.string "L_SCORE"
-    t.integer "NOTES"
-    t.integer "CHORD"
-    t.integer "PEAK"
-    t.integer "CHARGE"
-    t.integer "SCRATCH"
-    t.integer "SOFLAN"
-    t.integer "MAXSCORE"
+    t.float "A_NOTES"
+    t.float "A_CHORD"
+    t.float "A_PEAK"
+    t.float "A_CHARGE"
+    t.float "A_SCRATCH"
+    t.float "A_SOFLAN"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -35,13 +30,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_06_105204) do
 
   create_table "radervals", force: :cascade do |t|
     t.string "title"
-    t.integer "NOTES"
-    t.integer "CHORD"
-    t.integer "PEAK"
-    t.integer "CHARGE"
-    t.integer "SCRATCH"
-    t.integer "SOFLAN"
-    t.integer "MAXSCORE"
+    t.float "notes"
+    t.float "chord"
+    t.float "peak"
+    t.float "charge"
+    t.float "scratch"
+    t.float "soflan"
+    t.integer "maxscore"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -2,13 +2,13 @@ class CreateRadervals < ActiveRecord::Migration[7.1]
   def change
     create_table :radervals do |t|
       t.string :title
-      t.integer :NOTES
-      t.integer :CHORD
-      t.integer :PEAK
-      t.integer :CHARGE
-      t.integer :SCRATCH
-      t.integer :SOFLAN      
-      t.integer :MAXSCORE
+      t.float :notes
+      t.float :chord
+      t.float :peak
+      t.float :charge
+      t.float :scratch
+      t.float :soflan      
+      t.integer :maxscore
       t.timestamps
     end
   end
