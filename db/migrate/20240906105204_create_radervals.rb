@@ -9,6 +9,13 @@ class CreateRadervals < ActiveRecord::Migration[7.1]
       t.float :scratch
       t.float :soflan      
       t.integer :maxscore
+      t.float :l_notes
+      t.float :l_chord
+      t.float :l_peak
+      t.float :l_charge
+      t.float :l_scratch
+      t.float :l_soflan      
+      t.integer :l_maxscore
       t.timestamps
     end
   end

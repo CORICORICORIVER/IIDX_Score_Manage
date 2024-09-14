@@ -17,12 +17,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_094709) do
     t.string "タイトル"
     t.string "ジャンル"
     t.string "プレー回数"
-    t.float "A_NOTES"
-    t.float "A_CHORD"
-    t.float "A_PEAK"
-    t.float "A_CHARGE"
-    t.float "A_SCRATCH"
-    t.float "A_SOFLAN"
+    t.string "Difficulty"
+    t.float "NOTES"
+    t.float "CHORD"
+    t.float "PEAK"
+    t.float "CHARGE"
+    t.float "SCRATCH"
+    t.float "SOFLAN"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -37,6 +38,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_094709) do
     t.float "scratch"
     t.float "soflan"
     t.integer "maxscore"
+    t.float "l_notes"
+    t.float "l_chord"
+    t.float "l_peak"
+    t.float "l_charge"
+    t.float "l_scratch"
+    t.float "l_soflan"
+    t.integer "l_maxscore"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
