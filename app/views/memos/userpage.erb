@@ -1,11 +1,8 @@
-<div class="wrapper">
-  <div class="container flex-start">
-　　<div class="col-box-1">
-    <h2>こんにちは、<%= current_user.username%>さん！</h2>
-　　</div>
-  </div>
-</div>
+<%= form_tag import_memos_path, multipart: true do %>
 
-<a href="http://127.0.0.1:3000/memos">メモ帳へ</a>
-<a href="http://127.0.0.1:3000/csv">CSV読み取り</a>
-<%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+  <%= file_field_tag :file, class:"form-control" %>
+  <%= submit_tag "アップロード", class:"btn btn-secondary"%>
+
+<% end %>
+
+<%#= link_to 'ログアウト', destroy_user_session_path, method: :delete %>

@@ -6,37 +6,64 @@ def self.import(file)
     titles = Raderval.pluck(:title)
     ids = Raderval.pluck(:id)
     maxscores = Raderval.pluck(:maxscore)
-    v1 = Raderval.pluck(:NOTES)
-    v2 = Raderval.pluck(:CHORD)
-    v3 = Raderval.pluck(:PEAK)
-    v4 = Raderval.pluck(:CHARGE)
-    v5 = Raderval.pluck(:SCRATCH)
-    v6 = Raderval.pluck(:SOFLAN)
+    a1 = Raderval.pluck(:notes)
+    a2 = Raderval.pluck(:chord)
+    a3 = Raderval.pluck(:peak)
+    a4 = Raderval.pluck(:charge)
+    a5 = Raderval.pluck(:scratch)
+    a6 = Raderval.pluck(:soflan)
+    l_maxscores = Raderval.pluck(:L_maxscore)
+    l1 = Raderval.pluck(:l_notes)
+    l2 = Raderval.pluck(:l_chord)
+    l3 = Raderval.pluck(:l_peak)
+    l4 = Raderval.pluck(:l_charge)
+    l5 = Raderval.pluck(:l_scratch)
+    l6 = Raderval.pluck(:l_soflan)
     #@title = Raderval.find_by(title: row["タイトル"])
     CSV.foreach(file.path, headers: true, liberal_parsing: true) do |row|
       if titles.include?(row["タイトル"])
         index = titles.index(row["タイトル"])
-        data = find_by(id: row["id"]) || new  
-        data.attributes = row.to_hash.slice(*updatable_attributes)
-        data.raderval_id = ids[index]
-        if maxscores[index] != 0
-          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(v1[index])
-          data.A_NOTES = aaa.round(2)
-          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(v2[index])
-          data.A_CHORD = aaa.round(2)
-          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(v3[index])
-          data.A_PEAK = aaa.round(2)
-          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(v4[index])
-          data.A_CHARGE = aaa.round(2)
-          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(v5[index])
-          data.A_SCRATCH = aaa.round(2)
-          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(v6[index])
-          data.A_SOFLAN = aaa.round(2)
+        if row["ANOTHER スコア"]  != "0" 
+          data = find_by(タイトル: row["タイトル"]) || new  
+          data.attributes = row.to_hash.slice(*updatable_attributes)
+          data.raderval_id = ids[index]
+          data.Difficulty = "A"
+          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a1[index])
+          data.NOTES = aaa.round(2)
+          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a2[index])
+          data.CHORD = aaa.round(2)
+          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a3[index])
+          data.PEAK = aaa.round(2)
+          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a4[index])
+          data.CHARGE = aaa.round(2)
+          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a5[index])
+          data.SCRATCH = aaa.round(2)
+          aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a6[index])
+          data.SOFLAN = aaa.round(2)
+          data.save
         end
-        data.save
+        if row["LEGGENDARIA スコア"]  != "0" 
+          data = find_by(タイトル: row["タイトル"]) || new   
+          data.attributes = row.to_hash.slice(*updatable_attributes)
+          data.raderval_id = ids[index]
+          data.Difficulty = "L"
+          aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l1[index])
+          data.NOTES = aaa.round(2)
+          aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l2[index])
+          data.CHORD = aaa.round(2)
+          aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l3[index])
+          data.PEAK = aaa.round(2)
+          aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l4[index])
+          data.CHARGE = aaa.round(2)
+          aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l5[index])
+          data.SCRATCH = aaa.round(2)
+          aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l6[index])
+          data.SOFLAN = aaa.round(2)
+          data.save
+        end
+
       end
-    end
-    
+    end 
   rescue CSV::MalformedCSVError => e
     Rails.logger.error "CSV ファイルの形式が不正です: #{e.message}"
     # エラー処理: 例) エラー内容を通知するなど
@@ -47,10 +74,9 @@ def self.import(file)
     false
   end
 end
-
 # 更新を許可するカラムを定義
 def self.updatable_attributes
-  ["raderval_id","タイトル","ジャンル","プレー回数"]
+  ["タイトル",]
 end
 end
 

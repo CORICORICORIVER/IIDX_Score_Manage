@@ -13,23 +13,34 @@
  *= require_tree .
  *= require_self
  */
+ @font-face {
+  font-family: 'NotoSans';  /* フォントファミリーの名前を指定 */
+  src: url('NotoSansJP-Bold') format('truetype');  /* フォントファイルのパスを指定 */
+  /* 他のフォントファイルフォーマットにも対応する場合は、適切に追加 */
+}
+
+html {
+  font-size: 20px;
+  text-align: center;
+  font-family: "NotoSans",  sans-serif;
+}
 
  * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  color: #696969;
+  color: #000000;
   font-size: 16px;
-  font-family: sans-serif;
 }
 
 .header-color {
-  background-color: #4169e1;
+  background-color: #ffd375;
 }
 
 h1 {
   font-size: 36px;
-  color: #ffffff;
+  color: #ffffff;  
+  font-family: "NotoSans",  sans-serif;
 }
 
 h2 {
@@ -40,6 +51,11 @@ h2 {
   width: 100%;
 }
 
+.form-control {
+  width: auto; /* 必要に応じて具体的な幅を指定することもできます */
+  max-width: 400px; /* 例として最大幅を300pxに設定 */
+  margin: 0 auto; /* 中央に配置 */
+}
 .container {
   margin: 0 auto;
   width: 100%;
@@ -48,7 +64,7 @@ h2 {
 
 .col-box-1{
   width: 100%;
-  padding: 6px;
+  padding: 6px;  
 }
 
 .col-box-2{

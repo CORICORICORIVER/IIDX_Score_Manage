@@ -7,16 +7,19 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <style>
+      tr:nth-child(-n+10) {
+        background-color: #f2f2f2;
+      }
+    </style>
   </head>
 
   <body>
     <div class="wrapper header-color">
       <div class="container">
-       <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
-        <a href="http://127.0.0.1:3000/userpage">
-          <span class="fs-1">IIDXなんちゃら</span>
+        <a href="http://127.0.0.1:3000/userpage"  style="text-decoration: none;">
+        <div class="h1"><span class="fs-1">ノーツレーダ値　見れるやつ</span> </div>
         </a>
-       </header>
       </div>
     </div>
 

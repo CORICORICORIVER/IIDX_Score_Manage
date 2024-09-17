@@ -1,44 +1,65 @@
 <div class="wrapper">
-    <div class="container flex-start">
-        <div class="col-box-1">
-            <h2>メモ一覧</h2>
-        </div>
-
-        <!--全削除ボタン-->
-        <div class="col-box-1">
-            <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
-                <button type="button" class="btn btn-danger">
-                    <%= f.submit "全削除", class: "btn" %>
-                </button>
-            <% end %>    
-        </div>
-
-        <% @memos.reverse.each do |song| %>
-            <div class="col-box-3">
-                <%= form_with model: song, url: memo_path(song.id), local: true, method: :patch do |f| %>
-                    <div class="memo-header">
-                        <%= f.text_field :タイトル, placeholder: "タイトル", class: "form-box" %>
-                    </div>
-                    <div class="memo-header">
-                        <%= f.text_field :"A_NOTES", placeholder: "タイトル", class: "form-box" %>
-                    </div>
-                    <div class="memo-header">
-                        <%= f.text_field :"A_CHORD", placeholder: "タイトル", class: "form-box" %>
-                    </div>     
-                    <div class="memo-header">
-                        <%= f.text_field :"A_PEAK", placeholder: "タイトル", class: "form-box" %>
-                    </div>     
-                    <div class="memo-header">
-                        <%= f.text_field :"A_CHARGE", placeholder: "タイトル", class: "form-box" %>
-                    </div>          
-                    <div class="memo-header">
-                        <%= f.text_field :"A_SCRATCH", placeholder: "タイトル", class: "form-box" %>
-                    </div>  
-                    <div class="memo-header">
-                        <%= f.text_field :"A_SOFLAN", placeholder: "タイトル", class: "form-box" %>
-                    </div>                  
-                <% end %>
-            </div>
-        <% end %>
+  <div class="container flex-start">
+    
+    <!--<div class="col-box-1">
+      <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
+        <button type="button" class="btn btn-danger">
+          <%= f.submit "全削除", class: "btn" %>
+        </button>
+      <% end %>    
+    </div>-->
+    <div class="col-box-1">
+			<h4>↓ジャンルごとにソート↓</h4>
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <a href="<%= memos_path(sort: 'NOTES') %>" class="btn btn-outline-primary">NOTES</a>
+        <a href="<%= memos_path(sort: 'CHORD') %>" class="btn btn-outline-primary">CHORD</a>
+        <a href="<%= memos_path(sort: 'PEAK') %>" class="btn btn-outline-primary">PEAK</a>
+        <a href="<%= memos_path(sort: 'CHARGE') %>" class="btn btn-outline-primary">CHARGE</a>
+        <a href="<%= memos_path(sort: 'SCRATCH') %>" class="btn btn-outline-primary">SCRATCH</a>
+        <a href="<%= memos_path(sort: 'SOFLAN') %>" class="btn btn-outline-primary">SOF-LAN</a>
+      </div>
     </div>
+  
+    <table class="table table-striped-columns">
+      <thead>
+      	<tr class="table table-dark table-striped">
+  		  	<th>曲名</th>
+					<th>難易度</th>
+          <th>NOTES</th>
+          <th>CHORD</th>
+  			  <th>PEAK</th>
+          <th>CHARGE</th>
+          <th>SCRATCH</th>
+          <th>SOFLAN</th>               
+        </tr>
+      </thead>
+      <tbody>
+        <% @memos.reverse.take(10).each do |song| %>
+          <tr>
+            <td class="table-warning"><%= song.タイトル%></td>						
+            <td class="table-warning"><%= song.Difficulty%></td>
+            <td class="table-warning"><%= song.NOTES%></td>
+            <td class="table-warning"><%= song.CHORD%></td>
+            <td class="table-warning"><%= song.PEAK%></td>
+            <td class="table-warning"><%= song.CHARGE%></td>
+            <td class="table-warning"><%= song.SCRATCH%></td>
+            <td class="table-warning"><%= song.SOFLAN%></td>  
+          </tr>       
+        <% end %>
+
+				<% @memos.reverse.drop(10).each do |song| %>
+          <tr>
+            <td><%= song.タイトル%></td>						
+            <td><%= song.Difficulty%></td>
+            <td><%= song.NOTES%></td>
+            <td><%= song.CHORD%></td>
+            <td><%= song.PEAK%></td>
+            <td><%= song.CHARGE%></td>
+            <td><%= song.SCRATCH%></td>
+            <td><%= song.SOFLAN%></td>  
+          </tr>       
+        <% end %>
+      </tbody>
+    </table>
+  </div>
 </div>

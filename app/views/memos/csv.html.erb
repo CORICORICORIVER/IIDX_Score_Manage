@@ -1,10 +1,10 @@
 <%= form_tag import_memos_path, multipart: true do %>
-  <div class="col-box-1">
-    <%= file_field_tag :file %>
-  </div>
+  <button type="button" class="btn btn-primary">
+    <%= file_field_tag :file, class:"btn btn-primary" %>
+  </button>
 
-  <div class="col-box-3"> 
-  <%= submit_tag "アップロード" %>
-  </div>
+  <button type="button" >
+    <%= submit_tag "アップロード", class:"btn btn-primary"%>
+  </button>
 <% end %>
 

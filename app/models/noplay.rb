@@ -11,8 +11,8 @@ def self.import(file)
             scratch = find_by(id: row["id"]) || new  
             scratch.attributes = row.to_hash.slice(*updatable_attributes)
             scratch.save
-          puts row['column_name']
-        end
+            puts row['column_name']
+          end
       end
       #find_by→ActiveRecordのメソッド ()の中の条件に一致する最初のレコードをデータベースから検索する。
       # IDが見つかれば、レコードを呼び出し、見つかれなければ、新しく作成

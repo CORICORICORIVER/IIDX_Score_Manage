@@ -5,12 +5,10 @@ Rails.application.routes.draw do
 
   #ログアウトの際,GETメソッドではなくDELETEメソッドをリクエストするためのコード
   devise_scope :user do
-    get '/users/sign_out' => 'devise/sessions#destroy'
+  get '/users/sign_out' => 'devise/sessions#destroy'
   end
   #メモ帳作成
   get "memos" => 'memos#index'
-  #ソフラン用memoに飛ぶ
-  get "soflan" => 'memos#soflan'
   #CSVファイル読み込み
   get "csv" => 'memos#csv'
 
@@ -18,7 +16,7 @@ Rails.application.routes.draw do
   
   get "userpage" => 'memos#userpage'
   #ホームページ
-  root 'memos#home'
+  root 'memos#userpage'
 
   #memosの関数として:index, :update, :destroy, :createなどを設定
   resources :memos do
@@ -28,13 +26,6 @@ Rails.application.routes.draw do
       delete :destroy_all
     end
   end
-  
-  resources :soflan do
-    #importクラスを追加
-    collection do
-      post :import
-      delete :destroy_all
-    end
-  end
+
 end
 
