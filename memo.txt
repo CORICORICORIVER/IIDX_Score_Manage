@@ -1,0 +1,15 @@
+    csv1 =  CSV.read(file.path, headers: true, liberal_parsing: true)
+    csv2 =  CSV.read(db/rader_value.csv, headers: true, liberal_parsing: true)
+
+    # CSVデータをハッシュに変換
+    csv1_data = csv1.map { |row| row.to_hash }
+    csv2_data = csv2.map { |row| row.to_hash }
+
+    # 共通の列「タイトル」に基づいて結合する
+    merged_data = csv1_data.select do |row1|
+      csv2_data.any? { |row2| row1['タイトル'] == row2['タイトル'] }
+    end.map do |row1|
+      row2 = csv2_data.find { |r| r['タイトル'] == row1['タイトル'] }
+      row1.merge(row2)
+    end
+    
