@@ -37,7 +37,7 @@
         <% @memos.reverse.take(10).each do |song| %>
           <tr>
             <td class="table-warning"><%= song.title%></td>						
-            <td class="table-warning"><%= song.difficulty%></td>
+            <td class="table-warning"><%= song.difficulty&.to_s%></td>
             <td class="table-warning"><%= song.notes%></td>
             <td class="table-warning"><%= song.chord%></td>
             <td class="table-warning"><%= song.peak%></td>
