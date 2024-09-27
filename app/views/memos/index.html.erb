@@ -1,22 +1,22 @@
 <div class="wrapper">
   <div class="container flex-start">
     
-    <!--<div class="col-box-1">
+    <div class="col-box-1">
       <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
         <button type="button" class="btn btn-danger">
           <%= f.submit "全削除", class: "btn" %>
         </button>
       <% end %>    
-    </div>-->
+    </div>
     <div class="col-box-1">
 			<h4>↓ジャンルごとにソート↓</h4>
       <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <a href="<%= memos_path(sort: 'NOTES') %>" class="btn btn-outline-primary">NOTES</a>
-        <a href="<%= memos_path(sort: 'CHORD') %>" class="btn btn-outline-primary">CHORD</a>
-        <a href="<%= memos_path(sort: 'PEAK') %>" class="btn btn-outline-primary">PEAK</a>
-        <a href="<%= memos_path(sort: 'CHARGE') %>" class="btn btn-outline-primary">CHARGE</a>
-        <a href="<%= memos_path(sort: 'SCRATCH') %>" class="btn btn-outline-primary">SCRATCH</a>
-        <a href="<%= memos_path(sort: 'SOFLAN') %>" class="btn btn-outline-primary">SOF-LAN</a>
+        <a href="<%= memos_path(sort: 'notes') %>" class="btn btn-outline-primary">NOTES</a>
+        <a href="<%= memos_path(sort: 'chord') %>" class="btn btn-outline-primary">CHORD</a>
+        <a href="<%= memos_path(sort: 'peak') %>" class="btn btn-outline-primary">PEAK</a>
+        <a href="<%= memos_path(sort: 'charge') %>" class="btn btn-outline-primary">CHARGE</a>
+        <a href="<%= memos_path(sort: 'scratch') %>" class="btn btn-outline-primary">SCRATCH</a>
+        <a href="<%= memos_path(sort: 'soflan') %>" class="btn btn-outline-primary">SOF-LAN</a>
       </div>
     </div>
   
@@ -36,27 +36,27 @@
       <tbody>
         <% @memos.reverse.take(10).each do |song| %>
           <tr>
-            <td class="table-warning"><%= song.タイトル%></td>						
-            <td class="table-warning"><%= song.Difficulty%></td>
-            <td class="table-warning"><%= song.NOTES%></td>
-            <td class="table-warning"><%= song.CHORD%></td>
-            <td class="table-warning"><%= song.PEAK%></td>
-            <td class="table-warning"><%= song.CHARGE%></td>
-            <td class="table-warning"><%= song.SCRATCH%></td>
-            <td class="table-warning"><%= song.SOFLAN%></td>  
+            <td class="table-warning"><%= song.title%></td>						
+            <td class="table-warning"><%= song.difficulty%></td>
+            <td class="table-warning"><%= song.notes%></td>
+            <td class="table-warning"><%= song.chord%></td>
+            <td class="table-warning"><%= song.peak%></td>
+            <td class="table-warning"><%= song.charge%></td>
+            <td class="table-warning"><%= song.scratch%></td>
+            <td class="table-warning"><%= song.soflan%></td>  
           </tr>       
         <% end %>
 
 				<% @memos.reverse.drop(10).each do |song| %>
           <tr>
-            <td><%= song.タイトル%></td>						
-            <td><%= song.Difficulty%></td>
-            <td><%= song.NOTES%></td>
-            <td><%= song.CHORD%></td>
-            <td><%= song.PEAK%></td>
-            <td><%= song.CHARGE%></td>
-            <td><%= song.SCRATCH%></td>
-            <td><%= song.SOFLAN%></td>  
+            <td><%= song.title%></td>						
+            <td><%= song.difficulty%></td>
+            <td><%= song.notes%></td>
+            <td><%= song.chord%></td>
+            <td><%= song.peak%></td>
+            <td><%= song.charge%></td>
+            <td><%= song.scratch%></td>
+            <td><%= song.soflan%></td>  
           </tr>       
         <% end %>
       </tbody>
