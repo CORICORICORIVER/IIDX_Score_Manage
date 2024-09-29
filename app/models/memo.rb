@@ -28,6 +28,7 @@ def self.import(file)
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "A"
+          data.exscore = row["ANOTHER スコア"] 
           aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a1[index])
           data.notes = aaa.round(2)
           aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a2[index])
@@ -47,6 +48,7 @@ def self.import(file)
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "L"
+          data.exscore = row["LEGGENDARIA スコア"] 
           aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l1[index])
           data.notes = aaa.round(2)
           aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l2[index])

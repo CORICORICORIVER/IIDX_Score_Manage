@@ -1,0 +1,56 @@
+<div class="wrapper">
+  <div class="container flex-start">
+    
+    <div class="col-box-1">
+      <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
+        <button type="button" class="btn btn-danger">
+          <%= link_to '戻る', root_path, method: :get, class: "btn" %>
+        </button>
+      <% end %>    
+    </div>
+
+    <!--<div class="col-box-1">
+      <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
+        <button type="button" class="btn btn-danger">
+          <%= f.submit "全削除", class: "btn" %>
+        </button>
+      <% end %>    
+    </div>-->
+    <div class="col-box-1">
+			<h4>↓ジャンルごとにソート↓</h4>
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+        <a href="<%= notes_path(sort: 'notes') %>" class="btn btn-outline-primary">NOTES</a>
+      </div>
+    </div>
+  
+    <table class="table table-striped-columns">
+      <thead>
+      	<tr class="table table-dark table-striped">
+  		  	<th>曲名</th>
+					<th>難易度</th>
+          <th>NOTES</th>    
+          <th>EXスコア</th>        
+        </tr>
+      </thead>
+      <tbody>
+        <% @memos.reverse.take(10).each do |song| %>
+          <tr>
+            <td class="table-warning"><%= song.title%></td>						
+            <td class="table-warning"><%= song.difficulty&.to_s%></td>
+            <td class="table-warning"><%= song.notes%></td>
+            <td class="table-warning"><%= song.exscore%></td>
+          </tr>       
+        <% end %>
+
+				<% @memos.reverse.drop(10).each do |song| %>
+          <tr>
+            <td><%= song.title%></td>						
+            <td><%= song.difficulty%></td>
+            <td><%= song.notes%></td>
+            <td><%= song.exscore%></td>
+          </tr>       
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

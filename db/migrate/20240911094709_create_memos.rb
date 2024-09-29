@@ -7,6 +7,7 @@ class CreateMemos < ActiveRecord::Migration[7.1]
       t.string :genre
       t.string :playcount
       t.string :difficulty
+      t.integer :exscore
       t.float :notes
       t.float :chord
       t.float :peak

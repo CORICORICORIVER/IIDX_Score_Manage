@@ -18,6 +18,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_094709) do
     t.string "genre"
     t.string "playcount"
     t.string "difficulty"
+    t.integer "exscore"
     t.float "notes"
     t.float "chord"
     t.float "peak"
