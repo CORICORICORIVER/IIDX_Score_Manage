@@ -48,7 +48,7 @@ def self.import(file)
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "L"
-          data.exscore = integer(row["LEGGENDARIA スコア"] ).to_i 
+          data.exscore = row["LEGGENDARIA スコア"].to_i 
           aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l1[index])
           data.notes = aaa.round(2)
           aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l2[index])
