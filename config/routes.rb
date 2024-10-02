@@ -17,8 +17,10 @@ Rails.application.routes.draw do
   get "userpage" => 'memos#userpage'
 
   get "notes" => 'memos#notes'
+
+
   #ホームページ
-  root 'memos#userpage'
+  root 'memos#home'
 
   #memosの関数として:index, :update, :destroy, :createなどを設定
   resources :memos do

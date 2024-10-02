@@ -2,6 +2,7 @@ class CreateMemos < ActiveRecord::Migration[7.1]
   def change
     create_table :memos do |t|
       t.integer :raderval_id
+      t.integer :user_id
       t.string :version
       t.string :title
       t.string :genre

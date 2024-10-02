@@ -1,8 +1,10 @@
 class Memo < ApplicationRecord
   belongs_to :raderval
+  before_create :set_uuid
   #importメソッド
 def self.import(file)
   begin
+
     titles = Raderval.pluck(:title)
     ids = Raderval.pluck(:id)
     maxscores = Raderval.pluck(:maxscore)
