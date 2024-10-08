@@ -2,17 +2,15 @@
   <div class="container flex-start">
     
     <div class="col-box-1">
-      <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
-        <button type="button" class="btn btn-danger">
-          <%= link_to '戻る', root_path, method: :get, class: "btn" %>
-        </button>
-      <% end %>    
+      <button type="button" class="btn btn-danger">
+        <%= link_to '戻る', root_path, method: :get, class: "btn" %>
+      </button>   
     </div>
 
     <div class="col-box-1">
       <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
         <button type="button" class="btn btn-danger">
-          <%= f.submit "全削除", class: "btn" %>
+          <%= f.submit "全削除" %>
         </button>
       <% end %>    
     </div>

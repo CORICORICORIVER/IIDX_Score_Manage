@@ -1,8 +1,13 @@
 <div class="wrapper">
   <div class="container flex-start">
     <div class="col-box-1">
-      <%= link_to '新規登録', new_user_registration_path, method: :get %>
-      <%= link_to 'ログイン', new_user_session_path, method: :get %>
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to '新規登録', new_user_registration_path, method: :get , class: "btn"%>
+    </button>
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to 'ログイン', new_user_session_path, method: :get , class: "btn"%>
+    </button>
       <%= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
   </div>
 </div>

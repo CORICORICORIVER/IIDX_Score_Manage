@@ -1,8 +1,8 @@
 class MemosController < ApplicationController
   def index
-    @memo_new = Memo.new
     #orderによって、param[:sort]で指定された条件で結果をソートして、ソートされた結果を@memos変数に格納
-    @memos = Memo.where(id: params[:user_id]).joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+    memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
 
   end
 
@@ -36,8 +36,9 @@ class MemosController < ApplicationController
   end
 
   def import
-    Memo.import(params[:file])
-    redirect_to memos_path, notice: 'Import was successfully created.'
+    resource = current_user.id
+    Memo.import(params[:file], resource)
+    redirect_to memos_path(resource), notice: 'Import was successfully created.'
   end 
   private
  

@@ -1,10 +1,10 @@
 class Memo < ApplicationRecord
   belongs_to :raderval
-  before_create :set_uuid
   #importメソッド
-def self.import(file)
+def self.import(file, resource)
   begin
-
+    #user = @current_user.id
+    user = resource
     titles = Raderval.pluck(:title)
     ids = Raderval.pluck(:id)
     maxscores = Raderval.pluck(:maxscore)
@@ -30,6 +30,7 @@ def self.import(file)
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "A"
+          data.user_id = user
           data.exscore = row["ANOTHER スコア"].to_i 
           aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a1[index])
           data.notes = aaa.round(2)
@@ -50,6 +51,7 @@ def self.import(file)
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "L"
+          data.user_id = user
           data.exscore = row["LEGGENDARIA スコア"].to_i 
           aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l1[index])
           data.notes = aaa.round(2)

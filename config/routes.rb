@@ -8,16 +8,15 @@ Rails.application.routes.draw do
   get '/users/sign_out' => 'devise/sessions#destroy'
   end
   #メモ帳作成
-  get "memos" => 'memos#index'
+  get 'memos/:id', to: 'memos#index' , as: 'memos'
   #CSVファイル読み込み
   get "csv" => 'memos#csv'
 
   get "up" => "rails/health#show", as: :rails_health_check
   
-  get "userpage" => 'memos#userpage'
-
+  get 'user/:id', to: 'memos#users' , as: 'userpage'
+  
   get "notes" => 'memos#notes'
-
 
   #ホームページ
   root 'memos#home'

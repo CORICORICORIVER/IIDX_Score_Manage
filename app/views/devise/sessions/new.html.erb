@@ -1,14 +1,14 @@
 <h2>ログイン</h2>
 
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="field">
-    <%= f.label :メールアドレス %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="mb-3">
+    <%#= f.label :ニックネーム %><br />
+    <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control", placeholder: "ニックネームを入力"%>
   </div>
 
-  <div class="field">
-    <%= f.label :パスワード %><br />
-    <%= f.password_field :password, autocomplete: "current-password" %>
+  <div class="mb-3">
+    <%#= f.label :パスワード %><br />
+    <%= f.password_field :password, autocomplete: "new-password" , class: "form-control", placeholder: "パスワードを入力"%>
   </div>
 
   <% if devise_mapping.rememberable? %>
