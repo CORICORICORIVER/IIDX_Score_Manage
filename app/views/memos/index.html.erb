@@ -3,17 +3,10 @@
     
     <div class="col-box-1">
       <button type="button" class="btn btn-danger">
-        <%= link_to '戻る', root_path, method: :get, class: "btn" %>
+        <%= link_to '戻る', userpage_path(@resource), class: "btn" %>
       </button>   
     </div>
 
-    <div class="col-box-1">
-      <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
-        <button type="button" class="btn btn-danger">
-          <%= f.submit "全削除" %>
-        </button>
-      <% end %>    
-    </div>
     <div class="col-box-1">
 			<h4>↓ジャンルごとにソート↓</h4>
       <div class="btn-group" role="group" aria-label="Basic radio toggle button group">

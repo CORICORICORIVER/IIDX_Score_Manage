@@ -1,9 +1,13 @@
 class MemosController < ApplicationController
   def index
     #orderによって、param[:sort]で指定された条件で結果をソートして、ソートされた結果を@memos変数に格納
+    @resource = current_user.id
     @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
-    memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
 
+  end
+
+  def users
   end
 
   def notes
