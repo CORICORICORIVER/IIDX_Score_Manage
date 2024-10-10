@@ -42,7 +42,7 @@ class MemosController < ApplicationController
   def import
     resource = current_user.id
     Memo.import(params[:file], resource)
-    redirect_to memos_path(resource), notice: 'Import was successfully created.'
+    redirect_to memos_path, notice: 'Import was successfully created.'
   end 
   private
  

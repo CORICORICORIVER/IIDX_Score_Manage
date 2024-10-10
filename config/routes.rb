@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   get '/users/sign_out' => 'devise/sessions#destroy'
   end
   #メモ帳作成
-  get 'memos/:id', to: 'memos#index' , as: 'memos'
+  get 'memos', to: 'memos#index' , as: 'memos'
   #CSVファイル読み込み
   get "csv" => 'memos#csv'
 
