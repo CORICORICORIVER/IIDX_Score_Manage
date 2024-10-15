@@ -1,10 +1,12 @@
 class MemosController < ApplicationController
   def index
-    #orderによって、param[:sort]で指定された条件で結果をソートして、ソートされた結果を@memos変数に格納
-    @resource = current_user.id
-    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
-    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
-
+    if user_signed_in? 
+      #orderによって、param[:sort]で指定された条件で結果をソートして、ソートされた結果を@memos変数に格納
+      @resource = current_user.id
+      @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+      #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+    end
+    
   end
 
   def users
@@ -42,7 +44,7 @@ class MemosController < ApplicationController
   def import
     resource = current_user.id
     Memo.import(params[:file], resource)
-    redirect_to memos_path(resource), notice: 'Import was successfully created.'
+    redirect_to memos_path, notice: 'Import was successfully created.'
   end 
   private
  

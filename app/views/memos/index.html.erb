@@ -1,9 +1,11 @@
+<% if user_signed_in? %>
+
 <div class="wrapper">
   <div class="container flex-start">
     
     <div class="col-box-1">
-      <button type="button" class="btn btn-danger">
-        <%= link_to '戻る', userpage_path(@resource), class: "btn" %>
+      <button type="button" class="btn btn-primary">
+        <%= link_to 'CSVアップロードページへ', userpage_path(@resource), class: "btn" %>
       </button>   
     </div>
 
@@ -62,3 +64,18 @@
     </table>
   </div>
 </div>
+
+<% else %>
+	<div class="alert alert-danger" role="alert">
+  <h2>サインインをしてください</h2>
+  </div>
+  <div class="container flex-start">
+    <div class="col-box-1">
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to '新規登録', new_user_registration_path, method: :get , class: "btn"%>
+    </button>
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to 'ログイン', new_user_session_path, method: :get , class: "btn"%>
+    </button>
+  </div>
+<% end %>
