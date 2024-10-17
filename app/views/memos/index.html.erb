@@ -25,13 +25,14 @@
       <thead>
       	<tr class="table table-dark table-striped">
   		  	<th>曲名</th>
-					<th>難易度</th>
+					<th>難易度</th>          
           <th>NOTES</th>
           <th>CHORD</th>
   			  <th>PEAK</th>
           <th>CHARGE</th>
           <th>SCRATCH</th>
-          <th>SOFLAN</th>               
+          <th>SOFLAN</th> 
+          <th>EXスコア</th>              
         </tr>
       </thead>
       <tbody>
@@ -45,6 +46,7 @@
             <td class="table-warning"><%= song.charge%></td>
             <td class="table-warning"><%= song.scratch%></td>
             <td class="table-warning"><%= song.soflan%></td>  
+            <td class="table-warning"><%= song.exscore%></td>
           </tr>       
         <% end %>
 
@@ -58,6 +60,7 @@
             <td><%= song.charge%></td>
             <td><%= song.scratch%></td>
             <td><%= song.soflan%></td>  
+            <td><%= song.exscore%></td>
           </tr>       
         <% end %>
       </tbody>

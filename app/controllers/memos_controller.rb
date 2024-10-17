@@ -3,7 +3,7 @@ class MemosController < ApplicationController
     if user_signed_in? 
       #orderによって、param[:sort]で指定された条件で結果をソートして、ソートされた結果を@memos変数に格納
       @resource = current_user.id
-      @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+      @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('notes')
       #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
     end
     

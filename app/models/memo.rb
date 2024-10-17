@@ -27,6 +27,7 @@ def self.import(file, resource)
         index = titles.index(row["タイトル"])
         if row["ANOTHER スコア"]  != "0" 
           data = find_by(title: row["タイトル"]) || new  
+          data.exscore = row["ANOTHER スコア"]
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "A"
@@ -48,6 +49,7 @@ def self.import(file, resource)
         end
         if row["LEGGENDARIA スコア"]  != "0" 
           data = find_by(title: row["タイトル"]) || new   
+          data.exscore = row["LEGGENDARIA スコア"]
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "L"

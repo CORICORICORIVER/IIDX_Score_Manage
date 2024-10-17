@@ -1,6 +1,6 @@
 <% if user_signed_in? %>
 
-<%= form_tag import_memos_path, multipart: true do %>
+<%= form_tag import_memos_path, multipart:true do %>
 
   <%= file_field_tag :file, class:"form-control", accept:".csv" %>
   <%= submit_tag "アップロード", class:"btn btn-secondary"%>
