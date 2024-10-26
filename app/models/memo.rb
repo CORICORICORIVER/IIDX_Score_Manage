@@ -45,6 +45,12 @@ def self.import(file, resource)
           data.scratch = aaa.round(2)
           aaa =  (Float(row["ANOTHER スコア"]) / Float(maxscores[index])) * Float(a6[index])
           data.soflan = aaa.round(2)
+          data.notes_growth_rate   = Float(1 / Float(maxscores[index]) * Float(a1[index]))
+          data.chord_growth_rate   = Float(1 / Float(maxscores[index]) * Float(a2[index]))
+          data.peak_growth_rate    = Float(1 / Float(maxscores[index]) * Float(a3[index]))
+          data.charge_growth_rate  = Float(1 / Float(maxscores[index]) * Float(a4[index]))
+          data.scratch_growth_rate = Float(1 / Float(maxscores[index]) * Float(a5[index]))
+          data.soflan_growth_rate  = Float(1 / Float(maxscores[index]) * Float(a6[index]))
           data.save
         end
         if row["LEGGENDARIA スコア"]  != "0" 
@@ -67,6 +73,12 @@ def self.import(file, resource)
           data.scratch = aaa.round(2)
           aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l6[index])
           data.soflan = aaa.round(2)
+          data.notes_growth_rate   = Float(1 / Float(maxscores[index]) * Float(a1[index]))
+          data.chord_growth_rate   = Float(1 / Float(maxscores[index]) * Float(a2[index]))
+          data.peak_growth_rate    = Float(1 / Float(maxscores[index]) * Float(a3[index]))
+          data.charge_growth_rate  = Float(1 / Float(maxscores[index]) * Float(a4[index]))
+          data.scratch_growth_rate = Float(1 / Float(maxscores[index]) * Float(a5[index]))
+          data.soflan_growth_rate  = Float(1 / Float(maxscores[index]) * Float(a6[index]))
           data.save
         end
 

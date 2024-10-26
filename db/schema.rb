@@ -26,6 +26,12 @@ ActiveRecord::Schema[7.1].define(version: 2024_09_11_094709) do
     t.float "charge"
     t.float "scratch"
     t.float "soflan"
+    t.float "notes_growth_rate"
+    t.float "chord_growth_rate"
+    t.float "peak_growth_rate"
+    t.float "charge_growth_rate"
+    t.float "scratch_growth_rate"
+    t.float "soflan_growth_rate"
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

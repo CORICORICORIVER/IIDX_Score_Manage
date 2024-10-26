@@ -13,9 +13,15 @@ class MemosController < ApplicationController
   end
 
   def notes
-    @memo_new = Memo.new
-    #orderによって、param[:sort]で指定された条件で結果をソートして、ソートされた結果を@memos変数に格納
-    @memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+    @resource = current_user.id
+    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('notes')
+    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+  end
+
+  def chord
+    @resource = current_user.id
+    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('chord')
+    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
   end
  
   def create

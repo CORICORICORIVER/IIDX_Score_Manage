@@ -1,25 +1,23 @@
+<% if user_signed_in? %>
+
 <div class="wrapper">
   <div class="container flex-start">
     
     <div class="col-box-1">
-      <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
-        <button type="button" class="btn btn-danger">
-          <%= link_to '戻る', root_path, method: :get, class: "btn" %>
-        </button>
-      <% end %>    
+      <button type="button" class="btn btn-primary">
+        <%= link_to 'CSVアップロードページへ', userpage_path(@resource), class: "btn" %>
+      </button>   
     </div>
 
-    <!--<div class="col-box-1">
-      <%= form_with url: destroy_all_memos_path, local: true, method: :delete do |f| %>
-        <button type="button" class="btn btn-danger">
-          <%= f.submit "全削除", class: "btn" %>
-        </button>
-      <% end %>    
-    </div>-->
     <div class="col-box-1">
 			<h4>↓ジャンルごとにソート↓</h4>
       <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-        <a href="<%= notes_path(sort: 'notes') %>" class="btn btn-outline-primary">NOTES</a>
+        <a href="<%= memos_path(sort: 'notes') %>" class="btn btn-outline-primary">NOTES</a>
+        <a href="<%= memos_path(sort: 'chord') %>" class="btn btn-outline-primary">CHORD</a>
+        <a href="<%= memos_path(sort: 'peak') %>" class="btn btn-outline-primary">PEAK</a>
+        <a href="<%= memos_path(sort: 'charge') %>" class="btn btn-outline-primary">CHARGE</a>
+        <a href="<%= memos_path(sort: 'scratch') %>" class="btn btn-outline-primary">SCRATCH</a>
+        <a href="<%= memos_path(sort: 'soflan') %>" class="btn btn-outline-primary">SOF-LAN</a>
       </div>
     </div>
   
@@ -27,9 +25,10 @@
       <thead>
       	<tr class="table table-dark table-striped">
   		  	<th>曲名</th>
-					<th>難易度</th>
-          <th>NOTES</th>    
-          <th>EXスコア</th>        
+					<th>難易度</th>          
+          <th>レーダー値(NOTES)</th>
+          <th>EXスコア</th>           
+          <th>1点伸びた時の上昇値</th>               
         </tr>
       </thead>
       <tbody>
@@ -38,7 +37,8 @@
             <td class="table-warning"><%= song.title%></td>						
             <td class="table-warning"><%= song.difficulty&.to_s%></td>
             <td class="table-warning"><%= song.notes%></td>
-            <td class="table-warning"><%= song.exscore%></td>
+            <td class="table-warning"><%= song.exscore%></td>            
+            <td class="table-warning"><%= song.notes_growth_rate%></td>
           </tr>       
         <% end %>
 
@@ -48,9 +48,25 @@
             <td><%= song.difficulty%></td>
             <td><%= song.notes%></td>
             <td><%= song.exscore%></td>
+            <td><%= song.notes_growth_rate%></td>            
           </tr>       
         <% end %>
       </tbody>
     </table>
   </div>
 </div>
+
+<% else %>
+	<div class="alert alert-danger" role="alert">
+  <h2>サインインをしてください</h2>
+  </div>
+  <div class="container flex-start">
+    <div class="col-box-1">
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to '新規登録', new_user_registration_path, method: :get , class: "btn"%>
+    </button>
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to 'ログイン', new_user_session_path, method: :get , class: "btn"%>
+    </button>
+  </div>
+<% end %>
