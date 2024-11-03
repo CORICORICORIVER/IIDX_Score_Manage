@@ -17,6 +17,11 @@ Rails.application.routes.draw do
   get 'user/:id', to: 'memos#users' , as: 'userpage'
   
   get "notes" => 'memos#notes'
+  get "chord" => 'memos#chord'
+  get "peak" => 'memos#peak'
+  get "charge" => 'memos#charge'
+  get "scratch" => 'memos#scratch'
+  get "soflan" => 'memos#soflan'
 
   #ホームページ
   root 'memos#home'

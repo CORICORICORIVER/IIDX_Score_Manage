@@ -26,7 +26,7 @@
       	<tr class="table table-dark table-striped">
   		  	<th>曲名</th>
 					<th>難易度</th>          
-          <th>レーダー値(NOTES)</th>
+          <th>レーダー値(SCRATCH)</th>
           <th>EXスコア</th>           
           <th>1点伸びた時の上昇値</th>               
         </tr>
@@ -36,9 +36,9 @@
           <tr>
             <td class="table-warning"><%= song.title%></td>						
             <td class="table-warning"><%= song.difficulty&.to_s%></td>
-            <td class="table-warning"><%= song.notes%></td>
+            <td class="table-warning"><%= song.scratch%></td>
             <td class="table-warning"><%= song.exscore%></td>            
-            <td class="table-warning"><%= song.notes_growth_rate.round(2)%></td>
+            <td class="table-warning"><%= song.scratch_growth_rate.round(2)%></td>
           </tr>       
         <% end %>
 
@@ -46,9 +46,9 @@
           <tr>
             <td><%= song.title%></td>						
             <td><%= song.difficulty%></td>
-            <td><%= song.notes%></td>
+            <td><%= song.scratch%></td>
             <td><%= song.exscore%></td>
-            <td><%= song.notes_growth_rate.round(2)%></td>            
+            <td><%= song.scratch_growth_rate.round(2)%></td>            
           </tr>       
         <% end %>
       </tbody>

@@ -23,6 +23,30 @@ class MemosController < ApplicationController
     @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('chord')
     #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
   end
+  
+  def peak
+    @resource = current_user.id
+    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('peak')
+    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+  end
+
+  def charge
+    @resource = current_user.id
+    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('charge')
+    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+  end
+
+  def scratch
+    @resource = current_user.id
+    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('scratch')
+    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+  end
+
+  def soflan
+    @resource = current_user.id
+    @memos = Memo.where(user_id: current_user.id).joins(:raderval).select('memos.*, radervals.*').order(params[:sort]).order('soflan')
+    #memos = Memo.joins(:raderval).select('memos.*, radervals.*').order(params[:sort])
+  end
  
   def create
     @memo_new = Memo.new(memos_params)
