@@ -73,12 +73,12 @@ def self.import(file, resource)
           data.scratch = (aaa * 100).floor / 100.0
           aaa =  (Float(row["LEGGENDARIA スコア"]) / Float(l_maxscores[index])) * Float(l6[index])
           data.soflan = (aaa * 100).floor / 100.0
-          data.notes_growth_rate   = Float(1 / Float(maxscores[index]) * Float(a1[index]))
-          data.chord_growth_rate   = Float(1 / Float(maxscores[index]) * Float(a2[index]))
-          data.peak_growth_rate    = Float(1 / Float(maxscores[index]) * Float(a3[index]))
-          data.charge_growth_rate  = Float(1 / Float(maxscores[index]) * Float(a4[index]))
-          data.scratch_growth_rate = Float(1 / Float(maxscores[index]) * Float(a5[index]))
-          data.soflan_growth_rate  = Float(1 / Float(maxscores[index]) * Float(a6[index]))
+          data.notes_growth_rate   = Float(1 / Float(maxscores[index]) * Float(l1[index]))
+          data.chord_growth_rate   = Float(1 / Float(maxscores[index]) * Float(l2[index]))
+          data.peak_growth_rate    = Float(1 / Float(maxscores[index]) * Float(l3[index]))
+          data.charge_growth_rate  = Float(1 / Float(maxscores[index]) * Float(l4[index]))
+          data.scratch_growth_rate = Float(1 / Float(maxscores[index]) * Float(l5[index]))
+          data.soflan_growth_rate  = Float(1 / Float(maxscores[index]) * Float(l6[index]))
           data.save
         end
 
