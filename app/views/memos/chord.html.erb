@@ -20,6 +20,13 @@
         <a href="<%= soflan_path %>" class="btn btn-outline-primary">SOF-LAN</a>
       </div>
     </div>
+
+    <% ave = 0 %>
+    <% @memos.reverse.take(10).each do |song| %>
+      <% ave += song.chord %>
+    <% end %>
+    <%= image_tag 'CHORD.png', alt: 'Example Image', class: 'my-image', width: 120, height: 60 %>
+    <h1><%= '%.2f' % ((ave*100).floor / 1000.0)%></h1>	
   
     <table class="table table-striped-columns">
       <thead>
@@ -35,8 +42,8 @@
         <% @memos.reverse.take(10).each do |song| %>
           <tr>
             <td class="table-warning"><%= song.title%></td>						
-            <td class="table-warning"><%= song.difficulty&.to_s%></td>
-            <td class="table-warning"><%= song.chord%></td>
+            <td class="table-warning"><%= song.difficulty%></td>
+            <td class="table-warning"><%='%.2f' % song.chord%></td>
             <td class="table-warning"><%= song.exscore%></td>            
             <td class="table-warning"><%= song.chord_growth_rate.round(2)%></td>
           </tr>       
@@ -46,7 +53,7 @@
           <tr>
             <td><%= song.title%></td>						
             <td><%= song.difficulty%></td>
-            <td><%= song.chord%></td>
+            <td><%= '%.2f' % song.chord%></td>
             <td><%= song.exscore%></td>
             <td><%= song.chord_growth_rate.round(2)%></td>            
           </tr>       
