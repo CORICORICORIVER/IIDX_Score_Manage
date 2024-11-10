@@ -1,0 +1,33 @@
+<% if user_signed_in? %>
+
+<%= form_tag import_memos_path, multipart:true do %>
+
+  <%= file_field_tag :file, class:"form-control", accept:".csv" %>
+  <%= submit_tag "アップロード", class:"btn btn-secondary"%>
+
+<% end %>
+
+<%#= link_to 'ログアウト', destroy_user_session_path, method: :delete %>
+
+
+<div class="col-box-1">
+  <button type="button" class="btn btn-primary">
+    <%= link_to 'スコア一覧へ', memos_path, class: "btn" %>
+  </button>   
+</div>
+
+<% else %>
+	<div class="alert alert-danger" role="alert">
+  <h2>サインインをしてください</h2>
+  </div>
+  <div class="container flex-start">
+    <div class="col-box-1">
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to '新規登録', new_user_registration_path, method: :get , class: "btn"%>
+    </button>
+    <button type="button" class="btn btn-outline-primary">
+      <%= link_to 'ログイン', new_user_session_path, method: :get , class: "btn"%>
+    </button>
+  </div>
+<% end %>
+
