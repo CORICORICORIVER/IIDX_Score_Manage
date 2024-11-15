@@ -5,30 +5,27 @@ Rails.application.routes.draw do
 
   #ログアウトの際,GETメソッドではなくDELETEメソッドをリクエストするためのコード
   devise_scope :user do
-  get '/users/sign_out' => 'devise/sessions#destroy'
+    get '/users/sign_out' => 'devise/sessions#destroy'
   end
-  #メモ帳作成
+  #indexページの表示
   get 'memos', to: 'memos#index' , as: 'memos'
-  #CSVファイル読み込み
-  get "csv" => 'memos#csv'
 
   get "up" => "rails/health#show", as: :rails_health_check
-  
+  #CSV読み込みページ
   get 'user/:id', to: 'memos#users' , as: 'userpage'
-  
+  #それぞれのジャンルのページ
   get "notes" => 'memos#notes'
   get "chord" => 'memos#chord'
   get "peak" => 'memos#peak'
   get "charge" => 'memos#charge'
   get "scratch" => 'memos#scratch'
   get "soflan" => 'memos#soflan'
-
   #ホームページ
   root 'memos#home'
 
   #memosの関数として:index, :update, :destroy, :createなどを設定
   resources :memos do
-    #importクラスを追加
+    #importクラスとdestroy_allクラスを追加
     collection do
       post :import
       delete :destroy_all
