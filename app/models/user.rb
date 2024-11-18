@@ -19,7 +19,8 @@ class User < ApplicationRecord
     #loginキーがnilだった場合はfalse
     #Trueだった場合はconditionsからloginキーを削除され、そのキーを変数loginに格納もする
     if login = conditions.delete(:login)
-      #これはusernameが一致する最初のレコードを取得する。
+      
+      #usernameが一致する最初のレコードを取得する。
       #最初のusernameはconditionsにおけるusernameで
       #2番目のusernameはカラムとしてのusernameである
       #valueはプレースホルダーでfirstが条件に合う最初のレコードを取得するもの。

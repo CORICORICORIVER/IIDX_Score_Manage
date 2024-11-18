@@ -3,8 +3,9 @@ class Memo < ApplicationRecord
   #importメソッド
 def self.import(file, resource)
   begin
-    #user = @current_user.id
+    #user_idを取得
     user = resource
+    #Radervalテーブルのデータを変数に格納
     titles = Raderval.pluck(:title)
     ids = Raderval.pluck(:id)
     maxscores = Raderval.pluck(:maxscore)
@@ -21,13 +22,12 @@ def self.import(file, resource)
     l4 = Raderval.pluck(:l_chargeval)
     l5 = Raderval.pluck(:l_scratchval)
     l6 = Raderval.pluck(:l_soflanval)
-    #@title = Raderval.find_by(title: row["タイトル"])
+
     CSV.foreach(file.path, headers: true, liberal_parsing: true) do |row|
       if titles.include?(row["タイトル"])
         index = titles.index(row["タイトル"])
         if row["ANOTHER スコア"]  != "0" 
-          data = find_by(title: row["タイトル"], user_id:user) || new  
-          data.exscore = row["ANOTHER スコア"]
+          data = find_by(title: row["タイトル"], user_id:user,  difficulty:"A") || new  
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "A"
@@ -53,9 +53,9 @@ def self.import(file, resource)
           data.soflan_growth_rate  = Float(1 / Float(maxscores[index]) * Float(a6[index]))
           data.save
         end
+
         if row["LEGGENDARIA スコア"]  != "0" 
-          data = find_by(title: row["タイトル"], user_id:user) || new  
-          data.exscore = row["LEGGENDARIA スコア"]
+          data = find_by(title: row["タイトル"], user_id:user, difficulty:"L") || new  
           data.title = row["タイトル"]
           data.raderval_id = ids[index]
           data.difficulty = "L"
@@ -94,9 +94,6 @@ def self.import(file, resource)
     false
   end
 end
-# 更新を許可するカラムを定義
-def self.updatable_attributes
-  ["title",]
-end
+
 end
 
